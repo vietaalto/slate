@@ -28,6 +28,7 @@ import ShadowDOM from '../../examples/shadow-dom'
 import Tables from '../../examples/tables'
 import IFrames from '../../examples/iframe'
 import CustomPlaceholder from '../../examples/custom-placeholder'
+import RichText_HoveringToolbarExample from '../../examples/richtext_hoveringtoolbar'
 
 // node
 import { getAllExamples } from '../api'
@@ -54,6 +55,7 @@ const EXAMPLES = [
   ['Tables', Tables, 'tables'],
   ['Rendering in iframes', IFrames, 'iframe'],
   ['Custom placeholder', CustomPlaceholder, 'custom-placeholder'],
+  ['Rich Text Hovering Toolbar', RichText_HoveringToolbarExample, 'richtext_hoveringtoolbar'],
 ]
 
 const Header = props => (
