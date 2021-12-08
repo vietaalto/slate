@@ -1,5 +1,11 @@
 # slate-react
 
+## 0.72.1
+
+### Patch Changes
+
+- [#4720](https://github.com/ianstormtaylor/slate/pull/4720) [`1217021a`](https://github.com/ianstormtaylor/slate/commit/1217021a9a42563c9ee951ab670255c209863452) Thanks [@bryanph](https://github.com/bryanph)! - Add origin event type to setFragmentData to be able to distinguish copy, cut and drag
+
 ## 0.72.0
 
 ### Minor Changes
