@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState, useRef, useEffect } from 'react'
 import isHotkey from 'is-hotkey'
-import { Editable, withReact, useSlate, Slate } from 'slate-react'
+import { Editable, withReact, useSlate, ReactEditor, Slate } from 'slate-react'
 import {
   Editor,
   Transforms,
@@ -8,6 +8,7 @@ import {
   createEditor,
   Descendant,
   Element as SlateElement,
+  Range,
 } from 'slate'
 import { css } from 'emotion'
 import { withHistory } from 'slate-history'
@@ -59,13 +60,15 @@ const RichText_HoveringToolbarExample = () => {
           }
         }}
         onDOMBeforeInput={(event: InputEvent) => {
-          event.preventDefault()
           switch (event.inputType) {
             case 'formatBold':
+              event.preventDefault()
               return toggleFormat(editor, 'bold')
             case 'formatItalic':
+              event.preventDefault()
               return toggleFormat(editor, 'italic')
             case 'formatUnderline':
+              event.preventDefault()
               return toggleFormat(editor, 'underlined')
           }
         }}
