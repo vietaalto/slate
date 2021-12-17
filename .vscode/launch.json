@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+        {
+      "name": "Launch Chrome",
+      "request": "launch",
+      "type": "pwa-chrome",
+      "url": "http://localhost:3000",
+      "webRoot": "/c/Users/nguyvie/Desktop/Projects/sample_repos/slate/",
+    //   "sourceMapPathOverrides": {
+    //     "webpack://_N_E/*": "${webRoot}/site/*"
+    // },
+    }
+
+  ]
+}
