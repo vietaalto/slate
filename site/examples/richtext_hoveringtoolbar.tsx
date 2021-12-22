@@ -14,6 +14,8 @@ import { css } from 'emotion'
 import { withHistory } from 'slate-history'
 
 import { Button, Icon, Toolbar, Menu, Portal } from '../components'
+// import HomeIcon from '@mui/icons-material/Home';
+// <HomeIcon color="primary" />
 
 const HOTKEYS = {
   'mod+b': 'bold',
@@ -29,6 +31,18 @@ const RichText_HoveringToolbarExample = () => {
   const renderElement = useCallback(props => <Element {...props} />, [])
   const renderLeaf = useCallback(props => <Leaf {...props} />, [])
   const editor = useMemo(() => withHistory(withReact(createEditor())), [])
+  const [isHoveringComment, setIsHoveringComment] = useState(false)
+  const ref = useRef<HTMLDivElement | null>()
+
+  // TODO: add onmouseLeave
+  // {(event: InputEvent) => {
+  //   console.log('Mouse OVer')
+  // }}
+  const onMouseOverHandler = () => {
+    setIsHoveringComment(current => !current)
+  }
+
+  useEffect(() => {}, [isHoveringComment])
 
   return (
     <Slate editor={editor} value={value} onChange={value => setValue(value)}>
@@ -50,6 +64,7 @@ const RichText_HoveringToolbarExample = () => {
         placeholder="Enter some rich text…"
         spellCheck
         autoFocus
+        onMouseOver={onMouseOverHandler}
         onKeyDown={event => {
           for (const hotkey in HOTKEYS) {
             if (isHotkey(hotkey, event as any)) {
@@ -73,6 +88,11 @@ const RichText_HoveringToolbarExample = () => {
           }
         }}
       />
+      {isHoveringComment && (
+        <Portal>
+          <FormatButton format="bold" icon="format_bold" />
+        </Portal>
+      )}
     </Slate>
   )
 }
